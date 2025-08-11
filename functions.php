@@ -371,6 +371,36 @@ function infolibertaire_customize_register($wp_customize) {
 }
 add_action('customize_register', 'infolibertaire_customize_register');
 
+// Système de mise à jour GitHub
+add_filter('pre_set_site_transient_update_themes', 'infolibertaire_check_for_update');
+
+function infolibertaire_check_for_update($transient) {
+    if (empty($transient->checked)) return $transient;
+    
+    $theme_slug = get_template();
+    $theme_version = wp_get_theme()->get('Version');
+    
+    $remote_version = wp_remote_get('https://api.github.com/repos/AnARCHIS12/infolibertairerevo/releases/latest');
+    
+    if (!is_wp_error($remote_version)) {
+        $version_data = json_decode(wp_remote_retrieve_body($remote_version), true);
+        if (isset($version_data['tag_name'])) {
+            $new_version = ltrim($version_data['tag_name'], 'v');
+            
+            if (version_compare($theme_version, $new_version, '<')) {
+                $transient->response[$theme_slug] = array(
+                    'theme' => $theme_slug,
+                    'new_version' => $new_version,
+                    'url' => 'https://github.com/AnARCHIS12/infolibertairerevo',
+                    'package' => $version_data['zipball_url']
+                );
+            }
+        }
+    }
+    
+    return $transient;
+}
+
 // Sécurité : Masquer la version de WordPress
 function infolibertaire_remove_version() {
     return '';
