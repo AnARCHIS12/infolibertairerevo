@@ -1,0 +1,49 @@
+/* Styles pour les réseaux sociaux du footer */
+.footer-social {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.footer-social a:hover {
+    background: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(222, 73, 57, 0.4);
+}
+
+/* Styles pour le customizer */
+.customize-control-title {
+    font-weight: 600;
+}
+
+.customize-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Responsive pour les réseaux sociaux */
+@media (max-width: 768px) {
+    .footer-social {
+        flex-wrap: wrap;
+    }
+    
+    .footer-social a {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}

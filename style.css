@@ -1,0 +1,375 @@
+/*
+Theme Name: InfoLibertaire Inspired
+Description: Thème WordPress inspiré du design d'infolibertaire.net pour sites d'actualités militantes et anarchistes. Design sombre avec couleurs rouge et noir, typographie Oswald, barre d'actualités défilante, grille d'articles moderne et sidebar personnalisée. Entièrement responsive et configurable via le customizer WordPress.
+Version: 1.0
+Author: AnARCHIS12
+Author URI: https://github.com/AnARCHIS12/infolibertairerevo
+Tags: anarchist, militant, news, dark, red, black, responsive, customizer, sidebar, ticker, modern
+Requires at least: 5.0
+Tested up to: 6.3
+Requires PHP: 7.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: infolibertaire-inspired
+
+Ce thème est conçu pour les sites d'actualités militantes, anarchistes et de contre-information.
+Caractéristiques : Design sombre authentique, couleurs rouge/noir, typographie militante,
+barre d'actualités, widgets personnalisés, partage social, SEO optimisé, entièrement responsive.
+*/
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS */
+:root {
+    --primary-color: #de4939;
+    --secondary-color: #131313;
+    --dark-bg: #1a1a1a;
+    --light-text: #f0f0f0;
+    --gray-text: #808080;
+    --hover-color: #ff0000;
+}
+
+/* Body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23333" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="%23333" opacity="0.1"/><circle cx="40" cy="80" r="0.4" fill="%23333" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="%23131313"/><rect width="100" height="100" fill="url(%23grain)"/></svg>') fixed;
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    line-height: 1.6;
+    font-size: 18px;
+    /* Thème optimisé pour l'actualité militante */
+}
+
+/* Header */
+.site-header {
+    background: var(--secondary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.site-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.site-title:hover {
+    color: var(--hover-color);
+}
+
+/* Navigation */
+.main-navigation {
+    background: var(--dark-bg);
+    padding: 0.5rem 0;
+    box-shadow: 0 7px 12px rgba(0,0,0,0.5);
+}
+
+.nav-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    padding: 0 2rem;
+}
+
+.nav-menu li {
+    margin-right: 2rem;
+}
+
+.nav-menu a {
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* News Ticker */
+.news-ticker {
+    background: #efefef;
+    color: #000;
+    padding: 0.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--primary-color);
+    font-weight: 600;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+/* Articles Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.article-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 1.5rem;
+}
+
+.article-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.article-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.article-title a:hover {
+    color: var(--primary-color);
+}
+
+.article-excerpt {
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-date {
+    color: var(--primary-color);
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 2rem;
+    height: fit-content;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+.widget {
+    margin-bottom: 2rem;
+}
+
+.widget-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.widget-title::after {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 3px;
+    background: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+.widget ul {
+    list-style: none;
+}
+
+.widget li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.widget a {
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.widget a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--secondary-color);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--hover-color);
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: var(--light-text);
+    border-radius: 4px 0 0 4px;
+}
+
+.search-submit {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(222, 73, 57, 0.3);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

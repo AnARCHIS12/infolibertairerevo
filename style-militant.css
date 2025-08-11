@@ -1,0 +1,122 @@
+/* Styles militants supplémentaires pour InfoLibertaire */
+
+/* Effets visuels militants */
+.article-card {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, rgba(222, 73, 57, 0.05) 0%, rgba(19, 19, 19, 0.8) 100%);
+}
+
+.article-card:hover {
+    border-left-color: var(--hover-color);
+    box-shadow: 0 10px 30px rgba(222, 73, 57, 0.3);
+}
+
+/* Typographie militante */
+.article-title a:hover {
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+/* Navigation militante */
+.nav-menu a {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+/* Sidebar militante */
+.sidebar {
+    border: 1px solid rgba(222, 73, 57, 0.2);
+    background: linear-gradient(135deg, rgba(19, 19, 19, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+}
+
+.widget-title {
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.widget-title::after {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--hover-color) 100%);
+    height: 4px;
+}
+
+/* Footer militant */
+.site-footer {
+    background: linear-gradient(135deg, var(--black-bg) 0%, var(--secondary-color) 100%);
+    border-top: 3px solid var(--primary-color);
+}
+
+/* Boutons militants */
+.btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--hover-color) 100%);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(222, 73, 57, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(222, 73, 57, 0.4);
+}
+
+/* Ticker militant */
+.ticker-content {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Preloader militant */
+.spinner {
+    border: 4px solid rgba(222, 73, 57, 0.2);
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(222, 73, 57, 0.5);
+}
+
+/* Effets de survol militants */
+.article-meta .article-date {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Animations militantes */
+@keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 5px rgba(222, 73, 57, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(222, 73, 57, 0.8); }
+}
+
+.site-title a {
+    animation: pulse-red 3s ease-in-out infinite;
+}
+
+/* Responsive militant */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        background: rgba(19, 19, 19, 0.95);
+        border-radius: 8px;
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

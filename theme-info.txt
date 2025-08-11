@@ -1,0 +1,74 @@
+🔴 INFOLIBERTAIRE INSPIRED - THÈME WORDPRESS 🏴
+
+═══════════════════════════════════════════════════════════════
+
+📋 DESCRIPTION COMPLÈTE :
+
+Thème WordPress professionnel inspiré du design d'InfoLibertaire.net, 
+spécialement conçu pour les sites d'actualités militantes, anarchistes 
+et de contre-information. 
+
+🎨 DESIGN AUTHENTIQUE :
+• Palette de couleurs rouge (#de4939) et noir (#131313) fidèle à l'original
+• Typographie Oswald en majuscules pour un impact visuel fort
+• Arrière-plan texturé avec effet grain pour une esthétique militante
+• Animations et effets de survol soignés
+
+⚡ FONCTIONNALITÉS AVANCÉES :
+• Barre d'actualités défilante personnalisable
+• Grille d'articles moderne avec effets hover
+• Sidebar avec widgets personnalisés (populaires, catégories, archives)
+• Système de partage social intégré (Facebook, Twitter, Telegram, Email)
+• Navigation entre articles avec articles similaires
+• Preloader animé avec spinner rouge
+• Bouton retour en haut flottant
+• Support complet des commentaires WordPress
+
+🛠️ PANNEAU DE CONFIGURATION :
+• Customizer WordPress intégré avec 4 sections :
+  - 🎨 Couleurs personnalisables (rouge/noir)
+  - 📐 Options de mise en page (ticker, nombre d'articles)
+  - 📱 Réseaux sociaux (Facebook, Twitter, Mastodon, Telegram)
+  - ✏️ Textes personnalisés (ticker, footer)
+
+📱 RESPONSIVE DESIGN :
+• Optimisé pour mobile, tablette et desktop
+• Navigation adaptative
+• Grille d'articles flexible
+• Sidebar repositionnée sur mobile
+
+🔧 COMPATIBILITÉ TECHNIQUE :
+• WordPress 5.0+
+• PHP 7.4+
+• Tous navigateurs modernes
+• SEO optimisé avec métadonnées Open Graph
+• Performance optimisée (CSS/JS minifiés)
+
+📦 FICHIERS INCLUS :
+• style.css (styles principaux)
+• style-militant.css (effets avancés)
+• customizer.css (options de personnalisation)
+• index.php, single.php, header.php, footer.php, sidebar.php
+• functions.php (toutes les fonctionnalités)
+• js/main.js (interactions et animations)
+• screenshot.png (prévisualisation 1200x900)
+• README.md (documentation complète)
+
+🎯 UTILISATION RECOMMANDÉE :
+• Sites d'actualités militantes
+• Blogs anarchistes et libertaires
+• Médias alternatifs et contre-information
+• Collectifs et organisations militantes
+• Sites de syndicalisme et mouvements sociaux
+
+🏷️ MOTS-CLÉS :
+anarchist, militant, news, dark, red, black, responsive, customizer, 
+sidebar, ticker, modern, activism, counter-information, alternative-media
+
+═══════════════════════════════════════════════════════════════
+
+Installation : Téléverser le ZIP via Apparence > Thèmes > Ajouter
+Configuration : Apparence > Personnaliser
+Support : Documentation complète incluse dans README.md
+
+Thème créé avec passion pour la communauté militante ! ✊
