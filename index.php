@@ -5,7 +5,7 @@
         <?php if (have_posts()) : ?>
             <div class="articles-grid">
                 <?php while (have_posts()) : the_post(); ?>
-                    <article class="article-card">
+                    <article <?php post_class('article-card'); ?>>
                         <?php if (has_post_thumbnail()) : ?>
                             <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="article-image">
                         <?php endif; ?>
@@ -30,6 +30,7 @@
                                     ?>
                                 </span>
                             </div>
+                            <?php wp_link_pages(); ?>
                         </div>
                     </article>
                 <?php endwhile; ?>

@@ -1,4 +1,4 @@
-    <!-- Footer -->
+<!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-info">
@@ -10,20 +10,20 @@
                 <div class="footer-section">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="<?php echo home_url(); ?>">Accueil</a></li>
-                        <li><a href="<?php echo home_url('/category/actualites/'); ?>">Actualités</a></li>
-                        <li><a href="<?php echo home_url('/category/anarchisme/'); ?>">Anarchisme</a></li>
-                        <li><a href="<?php echo home_url('/about/'); ?>">À propos</a></li>
+                        <li><a href="<?php echo esc_url(home_url()); ?>">Accueil</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/actualites/')); ?>">Actualités</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/anarchisme/')); ?>">Anarchisme</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/about/')); ?>">À propos</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Catégories</h4>
                     <ul>
-                        <li><a href="<?php echo home_url('/category/antifascisme/'); ?>">Antifascisme</a></li>
-                        <li><a href="<?php echo home_url('/category/syndicalisme/'); ?>">Syndicalisme</a></li>
-                        <li><a href="<?php echo home_url('/category/international/'); ?>">International</a></li>
-                        <li><a href="<?php echo home_url('/category/france/'); ?>">France</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/antifascisme/')); ?>">Antifascisme</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/syndicalisme/')); ?>">Syndicalisme</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/international/')); ?>">International</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/category/france/')); ?>">France</a></li>
                     </ul>
                 </div>
                 
@@ -33,14 +33,14 @@
                         <a href="#" class="social-link">Facebook</a>
                         <a href="#" class="social-link">Twitter</a>
                         <a href="#" class="social-link">Mastodon</a>
-                        <a href="<?php echo home_url('/feed/'); ?>" class="social-link">RSS</a>
+                        <a href="<?php echo esc_url(home_url('/feed/')); ?>" class="social-link">RSS</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Tous droits réservés.</p>
-                <p><?php echo get_theme_mod('footer_text', 'Thème inspiré d\'InfoLibertaire.net'); ?></p>
+                <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Thème distribué sous licence GPL v2 ou ultérieure. Tous droits réservés.</p>
+                <p><?php echo esc_html(get_theme_mod('footer_text', 'Thème inspiré d\'InfoLibertaire.net')); ?></p>
                 
                 <?php if (get_theme_mod('facebook_url') || get_theme_mod('twitter_url') || get_theme_mod('mastodon_url') || get_theme_mod('telegram_url')) : ?>
                 <div class="footer-social">

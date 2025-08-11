@@ -13,6 +13,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
     <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="spinner"></div>
@@ -22,7 +23,7 @@
     <?php if (get_theme_mod('show_ticker', true)) : ?>
     <div class="news-ticker">
         <div class="ticker-content">
-            <strong><?php echo get_theme_mod('ticker_text', '🔴 ACTUALITÉS MILITANTES :'); ?></strong>
+            <strong><?php echo esc_html(get_theme_mod('ticker_text', '🔴 ACTUALITÉS MILITANTES :')); ?></strong>
             <?php
             $recent_posts = wp_get_recent_posts(array(
                 'numberposts' => 5,
@@ -41,16 +42,13 @@
     <header class="site-header">
         <div class="header-content">
             <h1 class="site-title">
-                <a href="<?php echo home_url(); ?>">
+                <a href="<?php echo esc_url(home_url()); ?>">
                     🔴 <?php bloginfo('name'); ?> 🏴
                 </a>
             </h1>
             
             <div class="header-search">
-                <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
-                    <input type="search" class="search-input" placeholder="Rechercher..." value="<?php echo get_search_query(); ?>" name="s">
-                    <button type="submit" class="search-submit">🔍</button>
-                </form>
+                <?php get_search_form(); ?>
             </div>
         </div>
     </header>
@@ -66,27 +64,16 @@
         ));
         
         function default_menu() {
-            echo '<ul class="nav-menu">
-                    <li><a href="' . home_url() . '">Accueil</a></li>
-                    <li><a href="' . home_url('/category/actualites/') . '">Actualités</a></li>
-                    <li><a href="' . home_url('/category/anarchisme/') . '">Anarchisme</a></li>
-                    <li><a href="' . home_url('/category/antifascisme/') . '">Antifascisme</a></li>
-                    <li><a href="' . home_url('/category/syndicalisme/') . '">Syndicalisme</a></li>
-                    <li><a href="' . home_url('/category/international/') . '">International</a></li>
-                  </ul>';
+                        echo '<ul class="nav-menu">
+                                        <li><a href="' . esc_url(home_url()) . '">Accueil</a></li>
+                                        <li><a href="' . esc_url(home_url('/category/actualites/')) . '">Actualités</a></li>
+                                        <li><a href="' . esc_url(home_url('/category/anarchisme/')) . '">Anarchisme</a></li>
+                                        <li><a href="' . esc_url(home_url('/category/antifascisme/')) . '">Antifascisme</a></li>
+                                        <li><a href="' . esc_url(home_url('/category/syndicalisme/')) . '">Syndicalisme</a></li>
+                                        <li><a href="' . esc_url(home_url('/category/international/')) . '">International</a></li>
+                                    </ul>';
         }
         ?>
     </nav>
 
-    <script>
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
-    </script>
+    <?php // Le script du preloader est maintenant en file d'attente via functions.php ?>

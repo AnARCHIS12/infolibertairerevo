@@ -11,13 +11,39 @@ function infolibertaire_theme_support() {
     // Support du titre automatique
     add_theme_support('title-tag');
     
-    // Support des menus
-    add_theme_support('menus');
+    // Support des menus (remplacé par register_nav_menus)
+    // add_theme_support('menus');
     
-    // Support des formats d'articles
-    add_theme_support('post-formats', array(
-        'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'
-    ));
+    // Support des formats d'articles retiré (inutile si non utilisé dans le thème)
+// Enqueue du script de réponse aux commentaires
+function infolibertaire_enqueue_comment_reply() {
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'infolibertaire_enqueue_comment_reply');
+
+// Enregistrement d’un style de bloc personnalisé
+if (function_exists('register_block_style')) {
+    add_action('init', function() {
+        register_block_style('core/paragraph', [
+            'name'  => 'infolibertaire-highlight',
+            'label' => __('Surligné InfoLibertaire', 'infolibertaire-inspired'),
+            'inline_style' => 'background: #de4939; color: #fff; padding: 0.2em 0.4em;'
+        ]);
+    });
+}
+
+// Enregistrement d’un modèle de bloc personnalisé
+if (function_exists('register_block_pattern')) {
+    add_action('init', function() {
+        register_block_pattern('infolibertaire/cta', [
+            'title'       => __('Appel à l’action', 'infolibertaire-inspired'),
+            'description' => __('Bloc d’appel à l’action stylisé.', 'infolibertaire-inspired'),
+            'content'     => '<!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center" style="background:#de4939;color:#fff;padding:1em;">Rejoignez la lutte&nbsp;!</p><!-- /wp:paragraph -->',
+        ]);
+    });
+}
     
     // Support HTML5
     add_theme_support('html5', array(
@@ -26,6 +52,25 @@ function infolibertaire_theme_support() {
     
     // Support des flux RSS
     add_theme_support('automatic-feed-links');
+    
+    // Support des blocs WordPress
+    add_theme_support('wp-block-styles');
+    add_theme_support('responsive-embeds');
+    
+    // Support du logo personnalisé
+    add_theme_support('custom-logo');
+    
+    // Support de l'en-tête personnalisé
+    add_theme_support('custom-header');
+    
+    // Support du fond personnalisé
+    add_theme_support('custom-background');
+    
+    // Support des alignements étendus
+    add_theme_support('align-wide');
+    
+    // Ajout d'un style d'éditeur
+    add_editor_style();
 }
 add_action('after_setup_theme', 'infolibertaire_theme_support');
 
@@ -73,17 +118,18 @@ function infolibertaire_scripts() {
     // Styles du customizer
     wp_enqueue_style('infolibertaire-customizer', get_template_directory_uri() . '/customizer.css', array('infolibertaire-style'), '1.0.0');
     
-    // Google Fonts
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap', array(), null);
-    
-    // Font Awesome pour les icônes
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
+    // Google Fonts et Font Awesome doivent être inclus localement pour respecter les règles WordPress.org
+    // Téléchargez les fichiers nécessaires et placez-les dans le dossier du thème, puis décommentez et adaptez :
+    // wp_enqueue_style('google-fonts', get_template_directory_uri() . '/fonts/oswald.css', array(), '1.0.0');
+    // wp_enqueue_style('font-awesome', get_template_directory_uri() . '/fonts/font-awesome.css', array(), '6.0.0');
     
     // jQuery (déjà inclus dans WordPress)
     wp_enqueue_script('jquery');
     
     // Script personnalisé
     wp_enqueue_script('infolibertaire-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true);
+    // Script preloader déplacé depuis header.php
+    wp_enqueue_script('infolibertaire-preloader', get_template_directory_uri() . '/js/preloader.js', array(), '1.0.0', true);
     
     // CSS personnalisé depuis le customizer
     $custom_css = infolibertaire_get_custom_css();

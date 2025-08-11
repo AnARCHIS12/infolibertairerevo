@@ -49,20 +49,17 @@
         <!-- Widget Recherche -->
         <div class="widget">
             <h3 class="widget-title">🔍 Recherche</h3>
-            <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
-                <input type="search" class="search-input" placeholder="Rechercher des articles..." value="<?php echo get_search_query(); ?>" name="s">
-                <button type="submit" class="search-submit">Rechercher</button>
-            </form>
+            <?php get_search_form(); ?>
         </div>
 
         <!-- Widget Liens Utiles -->
         <div class="widget">
             <h3 class="widget-title">🔗 Liens Utiles</h3>
             <ul>
-                <li><a href="<?php echo home_url('/feed/'); ?>" target="_blank">Flux RSS</a></li>
-                <li><a href="<?php echo home_url('/sitemap.xml'); ?>" target="_blank">Plan du site</a></li>
-                <li><a href="<?php echo home_url('/contact/'); ?>">Contact</a></li>
-                <li><a href="<?php echo home_url('/mentions-legales/'); ?>">Mentions légales</a></li>
+                <li><a href="<?php echo esc_url(home_url('/feed/')); ?>" target="_blank">Flux RSS</a></li>
+                <li><a href="<?php echo esc_url(home_url('/sitemap.xml')); ?>" target="_blank">Plan du site</a></li>
+                <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact</a></li>
+                <li><a href="<?php echo esc_url(home_url('/mentions-legales/')); ?>">Mentions légales</a></li>
             </ul>
         </div>
 

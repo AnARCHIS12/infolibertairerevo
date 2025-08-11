@@ -4,7 +4,7 @@
     <div class="content-area">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
-                <article class="single-article">
+                <article <?php post_class('single-article'); ?>>
                     <header class="article-header">
                         <h1 class="article-title"><?php the_title(); ?></h1>
                         
@@ -46,6 +46,7 @@
                     
                     <div class="article-content">
                         <?php the_content(); ?>
+                        <?php wp_link_pages(); ?>
                     </div>
                     
                     <footer class="article-footer">

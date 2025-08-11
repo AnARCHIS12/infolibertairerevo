@@ -5,13 +5,15 @@ Version: 1.0
 GitHub Theme URI: AnARCHIS12/infolibertairerevo
 Author: AnARCHIS12
 Author URI: https://github.com/AnARCHIS12/infolibertairerevo
-Tags: anarchist, militant, news, dark, red, black, responsive, customizer, sidebar, ticker, modern
+Tags: news
 Requires at least: 5.0
 Tested up to: 6.3
 Requires PHP: 7.4
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: infolibertaire-inspired
+
+Copyright (C) 2025 AnARCHIS12. Distribué sous licence GPL v2 ou ultérieure.
 
 Ce thème est conçu pour les sites d'actualités militantes, anarchistes et de contre-information.
 Caractéristiques : Design sombre authentique, couleurs rouge/noir, typographie militante,
@@ -313,6 +315,17 @@ body {
     border-radius: 0 4px 4px 0;
     cursor: pointer;
 }
+
+/* Classes recommandées WordPress */
+.wp-caption { max-width: 100%; margin: 1em auto; background: #222; padding: 8px; border-radius: 4px; }
+.wp-caption-text { font-size: 0.95em; color: #ccc; text-align: center; margin-top: 4px; }
+.sticky { border-left: 4px solid var(--primary-color); background: #191919; }
+.gallery-caption { font-size: 0.95em; color: #aaa; text-align: center; }
+.bypostauthor { font-weight: bold; }
+.alignright { float: right; margin-left: 1.5em; }
+.alignleft { float: left; margin-right: 1.5em; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.screen-reader-text { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
 /* Responsive */
 @media (max-width: 768px) {
