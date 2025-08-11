@@ -1,0 +1,28 @@
+name: Build and Release Theme Zip
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up zip
+        run: sudo apt-get install -y zip
+
+      - name: Create theme zip
+        run: |
+          cd ${{ github.workspace }}
+          zip -r infolibertaire-inspired.zip . -x '*.git*' '*.zip' '.github*'
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: infolibertaire-inspired.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
